@@ -1,0 +1,16 @@
+{
+	"node": true,
+	"undef": true,
+	"unused": true,
+
+	"predef":[
+		"describe",
+		"xdescribe",
+		"it",
+		"xit",
+		"before",
+		"beforeEach",
+		"after",
+		"afterEach"
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Events rest api",
+  "version": "1.0.0",
+  "description": "NYC Marathon App",
+  "main": "server.js",
+  "scripts": {
+  	"start": "node server.js"
+  },
+  "author": "Ezequiel Rubio",
+  "license": "ISC",
+  "dependencies": {
+        "express": "~4.0.0",
+        "body-parser": "~1.0.1"
+    }
+}
