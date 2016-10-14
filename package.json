@@ -4,12 +4,13 @@
   "description": "NYC Marathon App",
   "main": "server.js",
   "scripts": {
-  	"start": "node server.js"
+    "start": "node server.js"
   },
   "author": "Ezequiel Rubio",
   "license": "ISC",
   "dependencies": {
-        "express": "~4.0.0",
-        "body-parser": "~1.0.1"
-    }
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongoose": "^4.6.3"
+  }
 }

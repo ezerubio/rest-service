@@ -3,7 +3,8 @@ var express = require('express'),       // call express
 	app = express(),                 // define our app using express
 	bodyParser = require('body-parser'),
 	path = require('path'),
-	router = require('./src/router');
+	router = require('./src/router'),
+	mongoose = require('mongoose');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -25,8 +26,13 @@ app.use(function(req, res, next) {
 // Configure our application level routes
 router.configure(app);
 
-
-// START THE SERVER
-// =============================================================================
-app.listen(port);
-console.log('Ready on port ' + port);
+//Connect to mongo
+mongoose.connect('mongodb://localhost/events', function(err, res) {  
+	if(err) {
+		console.log('ERROR: connecting to Database. ' + err);
+	}
+	// START THE SERVER 
+	// =============================================================================
+	app.listen(port);
+	console.log('Ready on port ' + port);
+});

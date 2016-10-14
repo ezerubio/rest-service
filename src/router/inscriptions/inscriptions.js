@@ -1,7 +1,10 @@
 'use strict';
-
+require('../../models/inscription')
 var inscriptions = [],
-	config = require('../../../config/config');
+	config = require('../../../config/config'),
+	mongoose = require('mongoose'),
+	Inscription = mongoose.model('Inscription');
+
 
 module.exports.list = function(req, res) {
 	res.json(inscriptions);	
@@ -23,9 +26,15 @@ module.exports.save = function(req, res) {
 		inscription[field.name] = value;
 	});
 	if(isValid) {
-		//saved in memory can change to a mongodb
-		inscriptions.push(inscription);
-		res.json({status: 200});
+		inscription = new Inscription(inscription);
+		inscription.save(function(err) {
+			if(err) {
+				res.status(500);
+			} else {
+				res.json({status: 200});
+			}
+		});
+		
 	} else {
 		res.status(400).json({error: "Bad request."});
 	}

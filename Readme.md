@@ -4,6 +4,8 @@ Rest service
 A solution to NY Marathon APP
 
 
+Note: This project needs mongodb to run.
+
 How to use:
 ================
 
