@@ -2,7 +2,7 @@
 var express = require('express'),       // call express
 	app = express(),                 // define our app using express
 	bodyParser = require('body-parser'),
-	config = require('./config/config');
+	router = require('./src/router');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -19,11 +19,11 @@ router.get('/config', function(req, res) {
 	res.json(config);   
 });
 
-// more routes for our API will happen here
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-app.use('/api', router);
+
+// Configure our application level routes
+router.configure(app);
+
 
 // START THE SERVER
 // =============================================================================
