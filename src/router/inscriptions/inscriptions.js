@@ -7,7 +7,14 @@ var inscriptions = [],
 
 
 module.exports.list = function(req, res) {
-	res.json(inscriptions);	
+	Inscription.find({}, function(err, inscriptions) {
+		if(err) {
+			res.status(500);	
+		} else {
+			res.json(inscriptions);			
+		}
+	});
+	
 };
 
 module.exports.save = function(req, res) {
